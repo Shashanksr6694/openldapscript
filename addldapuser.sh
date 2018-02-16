@@ -3,7 +3,6 @@
 LDAPADDCMD="ldapadd"
 SLAPPASSWORD="slappasswd"
 SECRET="redhat"
-LDAPPASS="crevise"
 HOMEDIR="/home/users"
 SKEL="/etc/skel"
 GID="501"
@@ -46,7 +45,7 @@ homeDirectory: /home/users/$USERNAME
 add-user
 ) > $TMP/adduser.ldif
 
-$LDAPADDCMD -x -w $LDAPPASS -D "cn=admin,$DOMAIN" -f $TMP/adduser.ldif 
+$LDAPADDCMD -x -W -D "cn=admin,$DOMAIN" -f $TMP/adduser.ldif 
 
 if [ $? != "0" ]; then
 	echo "Add user failed"
