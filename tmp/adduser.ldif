@@ -7,6 +7,6 @@ cn: shashank
 uid: shashank
 uidNumber: $[ 1000 + $[ RANDOM % 65535 ]]
 gidNumber: $[ 1000 + $[ RANDOM % 65535 ]]
-userPassword: {CRYPT}zRgxey1iHRUMg
+userPassword: {SSHA}W5s9ygKrINFZWedAk9gaj42um1KI94dH
 loginShell: /bin/bash
 homeDirectory: /home/users/shashank

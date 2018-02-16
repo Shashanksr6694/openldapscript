@@ -1,7 +1,6 @@
 #!/bin/sh
 
 LDAPADDCMD="ldapadd"
-LDAPDELCMD="ldapdelete"
 SLAPPASSWORD="slappasswd"
 SECRET="redhat"
 LDAPPASS="crevise"
@@ -19,13 +18,13 @@ fi
 USERNAME=$1
 
 stty_orig=`stty -g`
-echo -n "Enter Password: "
+echo -n "Enter user Password: "
 stty -echo
 read USERPASS
 stty $stty_orig
 
 echo
-PASSWORD=`$SLAPPASSWORD -h "{crypt}" -s $USERPASS`
+PASSWORD=`$SLAPPASSWORD -h "{SSHA}" -s $USERPASS`
 
 LUID=`echo $[ 1000 + $[ RANDOM % 65535 ]]`
 
