@@ -1,12 +1,12 @@
-dn: cn=shashank,ou=users,dc=ec2-13-127-170-246,dc=ap-south-1,dc=compute,dc=amazonaws,dc=com
+dn: cn=my,ou=users,dc=ec2-13-127-170-246,dc=ap-south-1,dc=compute,dc=amazonaws,dc=com
 objectClass: top
 objectClass: account
 objectClass: posixAccount
 objectClass: shadowAccount
-cn: shashank
-uid: shashank
+cn: my
+uid: my
 uidNumber: $[ 1000 + $[ RANDOM % 65535 ]]
-gidNumber: $[ 1000 + $[ RANDOM % 65535 ]]
-userPassword: {SSHA}W5s9ygKrINFZWedAk9gaj42um1KI94dH
+gidNumber: 501
+userPassword: {SSHA}Rx6dzZbavvgeEUv4EAvOLKNAzHkyE8IR
 loginShell: /bin/bash
-homeDirectory: /home/users/shashank
+homeDirectory: /home/users/my
