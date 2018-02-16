@@ -54,5 +54,5 @@ if [ $? != "0" ]; then
 else
 #	mkdir -p $HOMEDIR/$USERNAME
 	cp -Rv $SKEL $HOMEDIR/$USERNAME
-	chown -Rv $LUID:$LUID $HOMEDIR/$USERNAME
+	chown -Rv $USER_ID:$USER_ID $HOMEDIR/$USERNAME
 fi
