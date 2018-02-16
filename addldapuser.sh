@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 LDAPADDCMD="ldapadd"
 SLAPPASSWORD="slappasswd"
@@ -7,7 +7,7 @@ LDAPPASS="crevise"
 HOMEDIR="/home/users"
 SKEL="/etc/skel"
 GID="501"
-TMP="/home/ubuntu/openldapscript/tmp/"
+TMP="/home/ubuntu/openldapscript/tmp"
 DOMAIN="dc=ec2-13-127-170-246,dc=ap-south-1,dc=compute,dc=amazonaws,dc=com"
 
 
@@ -27,7 +27,7 @@ stty $stty_orig
 echo
 PASSWORD=`$SLAPPASSWORD -h "{SSHA}" -s $USERPASS`
 
-UID=`echo $[ 1000 + $[ RANDOM % 65535 ]]`
+USER_ID=`echo $[ 1000 + $[ RANDOM % 65535 ]]`
 
 (
 cat <<add-user
@@ -38,7 +38,7 @@ objectClass: posixAccount
 objectClass: shadowAccount
 cn: $USERNAME
 uid: $USERNAME
-uidNumber: $UID
+uidNumber: $USER_ID
 gidNumber: $GID
 userPassword: $PASSWORD
 loginShell: /bin/bash
@@ -46,9 +46,9 @@ homeDirectory: /home/users/$USERNAME
 add-user
 ) > $TMP/adduser.ldif
 
-$LDAPADDCMD -x -w $LDAPPASS -D "cn=admin,$DOMAIN" -f $TMP/adduser.ldif && rm $TMP/adduser.ldif 
+$LDAPADDCMD -x -w $LDAPPASS -D "cn=admin,$DOMAIN" -f $TMP/adduser.ldif 
 
-if [ $? -ne "0" ]; then
+if [ $? != "0" ]; then
 	echo "Add user failed"
 	echo "Please review $TMP/adduser.ldif and add the account manually"
 else

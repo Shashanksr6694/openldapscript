@@ -1,12 +1,12 @@
-dn: cn=my,ou=users,dc=ec2-13-127-170-246,dc=ap-south-1,dc=compute,dc=amazonaws,dc=com
+dn: cn=lokesh,ou=users,dc=ec2-13-127-170-246,dc=ap-south-1,dc=compute,dc=amazonaws,dc=com
 objectClass: top
 objectClass: account
 objectClass: posixAccount
 objectClass: shadowAccount
-cn: my
-uid: my
-uidNumber: $[ 1000 + $[ RANDOM % 65535 ]]
+cn: lokesh
+uid: lokesh
+uidNumber: 6425
 gidNumber: 501
-userPassword: {SSHA}Rx6dzZbavvgeEUv4EAvOLKNAzHkyE8IR
+userPassword: {SSHA}GJKX70j6ZxGg9Tcfvw2QYW4n0nrtN5+O
 loginShell: /bin/bash
-homeDirectory: /home/users/my
+homeDirectory: /home/users/lokesh
